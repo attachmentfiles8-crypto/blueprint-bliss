@@ -371,12 +371,12 @@ function PdfPage({
 }
 
 function InlineForm({
-  firstName, email, setFirstName, setEmail, onSubmit, submitted, compact = false,
+  firstName, email, setFirstName, setEmail, onSubmit, submitted, submitting = false, errorMsg = "", compact = false,
 }: {
   firstName: string; email: string;
   setFirstName: (s: string) => void; setEmail: (s: string) => void;
   onSubmit: (e: React.FormEvent) => void;
-  submitted: boolean; compact?: boolean;
+  submitted: boolean; submitting?: boolean; errorMsg?: string; compact?: boolean;
 }) {
   if (submitted) {
     return (
@@ -411,12 +411,16 @@ function InlineForm({
           className="w-full rounded-md border border-border bg-input/50 px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
         />
       </div>
+      {errorMsg && (
+        <p className="text-center text-xs text-primary">{errorMsg}</p>
+      )}
       <button
         type="submit"
-        className="w-full rounded-md bg-primary px-6 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition-all hover:brightness-110 active:scale-[0.99]"
+        disabled={submitting}
+        className="w-full rounded-md bg-primary px-6 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition-all hover:brightness-110 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed"
         style={{ boxShadow: "0 10px 40px -10px oklch(0.62 0.19 20 / 0.5)" }}
       >
-        Get the Free Blueprint Instantly →
+        {submitting ? "Sending…" : "Get the Free Blueprint Instantly →"}
       </button>
       <p className="pt-1 text-center text-xs text-muted-foreground">
         Your peace is priority. No spam, ever.
