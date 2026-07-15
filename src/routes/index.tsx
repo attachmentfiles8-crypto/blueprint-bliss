@@ -15,6 +15,9 @@ function Index() {
   const [submitted, setSubmitted] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const submitSignup = useServerFn(addSignup);
 
   useEffect(() => {
     if (modalOpen) document.body.style.overflow = "hidden";
