@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useState, useEffect } from "react";
 import blueprintAsset from "@/assets/blueprint.pdf.asset.json";
+import { addSignup } from "@/lib/signups.functions";
 
 export const Route = createFileRoute("/")({
   component: Index,
