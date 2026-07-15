@@ -7,7 +7,7 @@ import { addSignup } from "@/lib/signups.functions";
 export const Route = createFileRoute("/")({
   component: Index,
 });
-
+const PDF_URL = "/The-Anxious-Avoidant-Trap-Blueprint.pdf";
 const PDF_URL = blueprintAsset.url;
 
 function Index() {
