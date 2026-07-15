@@ -41,13 +41,13 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* TOP BOOK BANNER */}
-      <div className="flex justify-center border-b border-border/60 bg-background py-6">
+      <div className="flex justify-center border-b border-border/60 bg-background py-8">
         <svg
           viewBox="0 0 64 48"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          className="h-12 w-16 text-primary"
+          className="h-20 w-28 text-primary"
           aria-label="Blueprint book"
         >
           {/* Book cover outline */}
