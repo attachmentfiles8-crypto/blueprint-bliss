@@ -25,17 +25,25 @@ function Index() {
     return () => { document.body.style.overflow = ""; };
   }, [modalOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!firstName || !email) return;
-    // Trigger PDF download
-    const a = document.createElement("a");
-    a.href = PDF_URL;
-    a.download = "The-Anxious-Avoidant-Trap-Blueprint.pdf";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setSubmitted(true);
+    if (!firstName || !email || submitting) return;
+    setSubmitting(true);
+    setErrorMsg("");
+    try {
+      await submitSignup({ data: { firstName, email } });
+      const a = document.createElement("a");
+      a.href = PDF_URL;
+      a.download = "The-Anxious-Avoidant-Trap-Blueprint.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setSubmitted(true);
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const openModal = () => {
