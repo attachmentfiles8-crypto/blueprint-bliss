@@ -40,6 +40,29 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* TOP BOOK BANNER */}
+      <div className="flex justify-center border-b border-border/60 bg-background py-6">
+        <svg
+          viewBox="0 0 64 48"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="h-12 w-16 text-primary"
+          aria-label="Blueprint book"
+        >
+          {/* Book cover outline */}
+          <rect x="4" y="4" width="56" height="40" rx="2" />
+          {/* Spine */}
+          <line x1="32" y1="4" x2="32" y2="44" />
+          {/* Page lines left */}
+          <line x1="10" y1="14" x2="26" y2="14" strokeWidth="1.2" />
+          <line x1="10" y1="20" x2="26" y2="20" strokeWidth="1.2" />
+          {/* Page lines right */}
+          <line x1="38" y1="14" x2="54" y2="14" strokeWidth="1.2" />
+          <line x1="38" y1="20" x2="54" y2="20" strokeWidth="1.2" />
+        </svg>
+      </div>
+
       {/* NAV */}
       <header className="border-b border-border/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
@@ -55,6 +78,7 @@ function Index() {
           </button>
         </div>
       </header>
+
 
       {/* HERO */}
       <section className="relative overflow-hidden">
