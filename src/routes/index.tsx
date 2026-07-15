@@ -389,40 +389,39 @@ function InlineForm({
         </div>
         <p className="mt-2 text-sm text-muted-foreground">
           If it didn't open automatically,{" "}
-          <a href={PDF_URL} download className="text-primary underline underline-offset-4">click here to download the blueprint</a>.
-        </p>
-      </div>
-    );
-  }
+          function InlineForm({ compact = false }: { compact?: boolean }) {
   return (
-    <form onSubmit={onSubmit} className={`${compact ? "mt-6 space-y-3" : "mx-auto mt-10 max-w-lg space-y-3"}`}>
+    // Replace URL with your actual Sheet Monkey URL link
+    <form action="https://api.sheetmonkey.io/form/jVxNoNKRPnc7dUTDz5jePN" method="POST" className={`${compact ? "mt-6 space-y-3" : "mx-auto mt-10 max-w-lg space-y-3"}`}>
       <div className={compact ? "space-y-3" : "grid grid-cols-1 gap-3 sm:grid-cols-2"}>
         <input
           required
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
+          name="First Name"
           placeholder="First name"
           className="w-full rounded-md border border-border bg-input/50 px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
         />
         <input
           required
           type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          name="Email"
           placeholder="Email address"
           className="w-full rounded-md border border-border bg-input/50 px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
         />
       </div>
-      {errorMsg && (
-        <p className="text-center text-xs text-primary">{errorMsg}</p>
-      )}
       <button
         type="submit"
-        disabled={submitting}
-        className="w-full rounded-md bg-primary px-6 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition-all hover:brightness-110 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full rounded-md bg-primary px-6 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition-all hover:brightness-110 active:scale-[0.99]"
         style={{ boxShadow: "0 10px 40px -10px oklch(0.62 0.19 20 / 0.5)" }}
       >
-        {submitting ? "Sending…" : "Get the Free Blueprint Instantly →"}
+        Get the Free Blueprint Instantly →
+      </button>
+      <p className="pt-1 text-center text-xs text-muted-foreground">
+        Your peace is priority. No spam, ever.
+      </p>
+    </form>
+  );
+}
+
       </button>
       <p className="pt-1 text-center text-xs text-muted-foreground">
         Your peace is priority. No spam, ever.
