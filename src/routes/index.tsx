@@ -278,6 +278,8 @@ function Index() {
             setEmail={setEmail}
             onSubmit={handleSubmit}
             submitted={submitted}
+            submitting={submitting}
+            errorMsg={errorMsg}
           />
         </div>
       </section>
